@@ -151,7 +151,6 @@ a{
     display:flex;
     align-items:center;
     background:linear-gradient(100deg,#ffe2ed,#fff7fa);
-    overflow:hidden;
 }
 
 .hero-text{
@@ -183,10 +182,6 @@ a{
     padding:13px 27px;
     border-radius:5px;
     font-weight:bold;
-}
-
-.hero-button:hover{
-    background:#c2185b;
 }
 
 /* SECTION */
@@ -243,10 +238,17 @@ a{
     overflow:hidden;
 }
 
+/* PRODUCT IMAGE */
 .product-image img{
     width:100%;
     height:100%;
-    object-fit:cover;
+    object-fit:contain;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.product-image img:hover{
+    transform:scale(1.03);
 }
 
 .product-info{
@@ -272,11 +274,12 @@ a{
     color:#f5a623;
 }
 
-.order-btn{
+/* BUTTONS */
+.order-btn,
+.order-now-btn{
     margin-top:12px;
     width:100%;
     border:0;
-    background:#e91e63;
     color:#fff;
     padding:10px;
     border-radius:4px;
@@ -284,8 +287,21 @@ a{
     font-weight:bold;
 }
 
+.order-btn{
+    background:#e91e63;
+}
+
 .order-btn:hover{
     background:#c2185b;
+}
+
+.order-now-btn{
+    margin-top:8px;
+    background:#25D366;
+}
+
+.order-now-btn:hover{
+    background:#1da851;
 }
 
 .discount{
@@ -298,6 +314,7 @@ a{
     border-radius:3px;
     font-size:11px;
     font-weight:bold;
+    z-index:2;
 }
 
 /* OFFER */
@@ -457,7 +474,7 @@ footer{
 .checkout{
     width:100%;
     border:0;
-    background:#e91e63;
+    background:#25D366;
     color:#fff;
     padding:14px;
     margin-top:15px;
@@ -466,9 +483,49 @@ footer{
     font-weight:bold;
 }
 
-/* RESPONSIVE */
-@media(max-width:1050px){
+/* FULL SCREEN IMAGE */
+.image-modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.95);
+    z-index:99999;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
 
+.image-modal.active{
+    display:flex;
+}
+
+.image-modal img{
+    max-width:95vw;
+    max-height:92vh;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    border-radius:6px;
+}
+
+.image-close{
+    position:absolute;
+    top:10px;
+    right:24px;
+    color:#fff;
+    font-size:46px;
+    cursor:pointer;
+}
+
+.image-hint{
+    position:absolute;
+    bottom:15px;
+    color:#ddd;
+    font-size:13px;
+}
+
+/* MOBILE */
+@media(max-width:1050px){
     .products{
         grid-template-columns:repeat(3,1fr);
     }
@@ -483,7 +540,6 @@ footer{
 }
 
 @media(max-width:700px){
-
     .header{
         flex-wrap:wrap;
     }
@@ -525,7 +581,6 @@ footer{
 }
 
 @media(max-width:450px){
-
     .products{
         grid-template-columns:1fr 1fr;
         gap:8px;
@@ -557,916 +612,1050 @@ footer{
 
 <body>
 
-<!-- TOP BAR -->
 <div class="topbar">
-    🎁 Welcome to Love Basket — Gifts, Memories & Love
+🎁 Welcome to Love Basket — Gifts, Memories & Love
 </div>
 
-<!-- HEADER -->
 <header class="header">
 
-    <div class="logo">
-        Love Basket 💝
-    </div>
+<div class="logo">
+Love Basket 💝
+</div>
 
-    <div class="search">
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Search products..."
-            onkeyup="searchProducts()"
-        >
-        <button>🔍</button>
-    </div>
+<div class="search">
+<input
+type="text"
+id="searchInput"
+placeholder="Search products..."
+onkeyup="searchProducts()"
+>
+<button>🔍</button>
+</div>
 
-    <div class="header-actions">
+<div class="header-actions">
 
-        <div class="header-action">
-            <div>👤</div>
-            Account
-        </div>
+<div class="header-action">
+<div>👤</div>
+Account
+</div>
 
-        <div class="header-action cart" onclick="openCart()">
-            <div>🛒</div>
-            Cart
-            <span class="cart-count" id="cartCount">0</span>
-        </div>
+<div class="header-action cart" onclick="openCart()">
+<div>🛒</div>
+Cart
+<span class="cart-count" id="cartCount">0</span>
+</div>
 
-    </div>
+</div>
 
 </header>
 
-<!-- CATEGORY BAR -->
+
 <div class="category-bar">
 
-    <div class="category-inner">
+<div class="category-inner">
 
-        <button onclick="filterProducts('all')">
-            All Products
-        </button>
+<button onclick="filterProducts('all')">
+All Products
+</button>
 
-        <button onclick="filterProducts('photo')">
-            📸 Photo Gifts
-        </button>
+<button onclick="filterProducts('photo')">
+📸 Photo Gifts
+</button>
 
-        <button onclick="filterProducts('frame')">
-            🖼️ Photo Frame
-        </button>
+<button onclick="filterProducts('frame')">
+🖼️ Photo Frame
+</button>
 
-        <button onclick="filterProducts('bouquet')">
-            🌹 Bouquet
-        </button>
+<button onclick="filterProducts('bouquet')">
+🌹 Bouquet
+</button>
 
-        <button onclick="filterProducts('jewellery')">
-            💎 Jewellery
-        </button>
+<button onclick="filterProducts('jewellery')">
+💎 Jewellery
+</button>
 
-        <button onclick="filterProducts('custom')">
-            🎁 Custom Gifts
-        </button>
+<button onclick="filterProducts('custom')">
+🎁 Custom Gifts
+</button>
 
-        <button onclick="filterProducts('offer')">
-            🔥 Offers
-        </button>
-
-    </div>
+<button onclick="filterProducts('offer')">
+🔥 Offers
+</button>
 
 </div>
 
-<!-- HERO -->
+</div>
+
+
 <section class="hero">
 
-    <div class="hero-box">
+<div class="hero-box">
 
-        <div class="hero-text">
+<div class="hero-text">
 
-            <small>
-                LOVE BASKET • ONLINE GIFT SHOP
-            </small>
+<small>
+LOVE BASKET • ONLINE GIFT SHOP
+</small>
 
-            <h1>
-                Make Your Special Moments More Beautiful 💝
-            </h1>
+<h1>
+Make Your Special Moments More Beautiful 💝
+</h1>
 
-            <p>
-                আপনার প্রিয় মানুষের জন্য Photo Frame, Photo Print,
-                Handmade Gifts, Bouquet, Jewellery এবং Personalized Gift—
-                সবকিছু এক জায়গায়।
-            </p>
+<p>
+আপনার প্রিয় মানুষের জন্য Photo Frame, Photo Print,
+Handmade Gifts, Bouquet, Jewellery এবং Personalized Gift—
+সবকিছু এক জায়গায়।
+</p>
 
-            <a href="#shop" class="hero-button">
-                Shop Now →
-            </a>
+<a href="#shop" class="hero-button">
+Shop Now →
+</a>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </section>
 
-<!-- PRODUCTS -->
+
 <section class="section" id="shop">
 
-    <div class="section-heading">
+<div class="section-heading">
 
-        <h2>
-            🔥 Popular Products
-        </h2>
+<h2>
+🔥 Popular Products
+</h2>
 
-        <span>
-            Explore More →
-        </span>
+<span>
+Explore More →
+</span>
 
-    </div>
+</div>
 
-    <div class="products" id="productGrid">
 
-        <!-- A4 PHOTO FRAME -->
-        <div
-            class="product"
-            data-category="frame photo"
-            data-name="A4 Photo Frame"
-        >
+<div class="products" id="productGrid">
 
-            <div class="product-image">
-                🖼️
-            </div>
 
-            <div class="product-info">
+<!-- A4 PHOTO FRAME -->
 
-                <div class="product-name">
-                    A4 Photo Frame
-                </div>
+<div
+class="product"
+data-category="frame photo"
+data-name="A4 Photo Frame"
+>
 
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐
-                </div>
+<div class="product-image">
+🖼️
+</div>
 
-                <div class="product-price">
-                    ৳399
-                </div>
+<div class="product-info">
 
-                <button
-                    class="order-btn"
-                    onclick="addToCart('A4 Photo Frame',399)"
-                >
-                    Add to Cart
-                </button>
+<div class="product-name">
+A4 Photo Frame
+</div>
 
-            </div>
+<div class="rating">
+⭐⭐⭐⭐⭐
+</div>
 
-        </div>
+<div class="product-price">
+৳399
+</div>
 
-        <!-- MINI PHOTO -->
-        <div
-            class="product"
-            data-category="photo"
-            data-name="Mini Photo Print"
-        >
+<button
+class="order-btn"
+onclick="addToCart('A4 Photo Frame',399)"
+>
+Add to Cart
+</button>
 
-            <div class="product-image">
+<button
+class="order-now-btn"
+onclick="orderWhatsApp('A4 Photo Frame',399)"
+>
+Order Now
+</button>
 
-                <img
-                    src="mini-photos.jpg"
-                    alt="Mini Photo Print"
-                >
+</div>
+</div>
 
-            </div>
 
-            <div class="product-info">
+<!-- MINI PHOTO -->
 
-                <div class="product-name">
-                    Mini Photo Print
-                </div>
+<div
+class="product"
+data-category="photo"
+data-name="Mini Photo Print"
+>
 
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐
-                </div>
+<div class="product-image">
 
-                <div class="product-price">
-                    ৳20 / pcs
-                </div>
+<img
+src="mini-photos.jpg"
+alt="Mini Photo Print"
+onclick="openImage(this)"
+>
 
-                <button
-                    class="order-btn"
-                    onclick="addToCart('Mini Photo Print',20)"
-                >
-                    Add to Cart
-                </button>
+</div>
 
-            </div>
+<div class="product-info">
 
-        </div>
+<div class="product-name">
+Mini Photo Print
+</div>
 
-        <!-- RIBBON ROSE -->
-        <div
-            class="product"
-            data-category="bouquet"
-            data-name="Ribbon Rose Bouquet"
-        >
+<div class="rating">
+⭐⭐⭐⭐⭐
+</div>
 
-            <div class="product-image">
-                🌹
-            </div>
+<div class="product-price">
+৳20 / pcs
+</div>
 
-            <div class="product-info">
+<button
+class="order-btn"
+onclick="addToCart('Mini Photo Print',20)"
+>
+Add to Cart
+</button>
 
-                <div class="product-name">
-                    Ribbon Rose Bouquet
-                </div>
+<button
+class="order-now-btn"
+onclick="orderWhatsApp('Mini Photo Print',20)"
+>
+Order Now
+</button>
+
+</div>
+</div>
 
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐
-                </div>
+
+<!-- RIBBON ROSE -->
 
-                <div class="product-price">
-                    ৳99
-                </div>
+<div
+class="product"
+data-category="bouquet"
+data-name="Ribbon Rose Bouquet"
+>
 
-                <button
-                    class="order-btn"
-                    onclick="addToCart('Ribbon Rose Bouquet',99)"
-                >
-                    Add to Cart
-                </button>
+<div class="product-image">
+🌹
+</div>
 
-            </div>
+<div class="product-info">
 
-        </div>
+<div class="product-name">
+Ribbon Rose Bouquet
+</div>
 
-        <!-- HANDMADE CHURI -->
-        <div
-            class="product"
-            data-category="jewellery"
-            data-name="Handmade Churi"
-        >
-
-            <div class="product-image">
-                💎
-            </div>
+<div class="rating">
+⭐⭐⭐⭐⭐
+</div>
 
-            <div class="product-info">
+<div class="product-price">
+৳99
+</div>
+
+<button
+class="order-btn"
+onclick="addToCart('Ribbon Rose Bouquet',99)"
+>
+Add to Cart
+</button>
 
-                <div class="product-name">
-                    Handmade Churi
-                </div>
+<button
+class="order-now-btn"
+onclick="orderWhatsApp('Ribbon Rose Bouquet',99)"
+>
+Order Now
+</button>
+
+</div>
+</div>
 
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐
-                </div>
+
+<!-- CHURI -->
 
-                <div class="product-price">
-                    ৳150
-                </div>
+<div
+class="product"
+data-category="jewellery"
+data-name="Handmade Churi"
+>
 
-                <button
-                    class="order-btn"
-                    onclick="addToCart('Handmade Churi',150)"
-                >
-                    Add to Cart
-                </button>
+<div class="product-image">
+💎
+</div>
 
-            </div>
+<div class="product-info">
 
-        </div>
+<div class="product-name">
+Handmade Churi
+</div>
 
-        <!-- MINI PHOTO FRAME -->
-        <div
-            class="product"
-            data-category="frame photo"
-            data-name="Mini Photo Frame"
-        >
+<div class="rating">
+⭐⭐⭐⭐⭐
+</div>
 
-            <div class="product-image">
-                💝
-            </div>
-
-            <div class="product-info">
+<div class="product-price">
+৳150
+</div>
 
-                <div class="product-name">
-                    Mini Photo Frame
-                </div>
+<button
+class="order-btn"
+onclick="addToCart('Handmade Churi',150)"
+>
+Add to Cart
+</button>
+
+<button
+class="order-now-btn"
+onclick="orderWhatsApp('Handmade Churi',150)"
+>
+Order Now
+</button>
 
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐
-                </div>
+</div>
+</div>
 
-                <div class="product-price">
-                    ৳200
-                </div>
+
+<!-- MINI FRAME -->
 
-                <button
-                    class="order-btn"
-                    onclick="addToCart('Mini Photo Frame',200)"
-                >
-                    Add to Cart
-                </button>
+<div
+class="product"
+data-category="frame photo"
+data-name="Mini Photo Frame"
+>
+
+<div class="product-image">
+💝
+</div>
 
-            </div>
+<div class="product-info">
 
-        </div>
+<div class="product-name">
+Mini Photo Frame
+</div>
 
-        <!-- 16 PHOTO OFFER -->
-        <div
-            class="product"
-            data-category="offer photo"
-            data-name="16 Photo Offer"
-        >
+<div class="rating">
+⭐⭐⭐⭐⭐
+</div>
 
-            <div class="discount">
-                OFFER
-            </div>
-
-            <div class="product-image">
-                📸
-            </div>
+<div class="product-price">
+৳200
+</div>
 
-            <div class="product-info">
+<button
+class="order-btn"
+onclick="addToCart('Mini Photo Frame',200)"
+>
+Add to Cart
+</button>
+
+<button
+class="order-now-btn"
+onclick="orderWhatsApp('Mini Photo Frame',200)"
+>
+Order Now
+</button>
+
+</div>
+</div>
 
-                <div class="product-name">
-                    16 Photo Special Offer
-                </div>
 
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐
-                </div>
+<!-- 16 PHOTO -->
 
-                <div class="product-price">
-                    ৳199
-                </div>
+<div
+class="product"
+data-category="offer photo"
+data-name="16 Photo Offer"
+>
+
+<div class="discount">
+OFFER
+</div>
 
-                <button
-                    class="order-btn"
-                    onclick="addToCart('16 Photo Offer',199)"
-                >
-                    Add to Cart
-                </button>
+<div class="product-image">
+📸
+</div>
 
-            </div>
+<div class="product-info">
 
-        </div>
+<div class="product-name">
+16 Photo Special Offer
+</div>
 
-        <!-- 32 PHOTO OFFER -->
-        <div
-            class="product"
-            data-category="offer photo"
-            data-name="32 Photo Offer"
-        >
+<div class="rating">
+⭐⭐⭐⭐⭐
+</div>
 
-            <div class="discount">
-                BEST DEAL
-            </div>
+<div class="product-price">
+৳199
+</div>
 
-            <div class="product-image">
-                🎞️
-            </div>
+<button
+class="order-btn"
+onclick="addToCart('16 Photo Offer',199)"
+>
+Add to Cart
+</button>
 
-            <div class="product-info">
+<button
+class="order-now-btn"
+onclick="orderWhatsApp('16 Photo Offer',199)"
+>
+Order Now
+</button>
 
-                <div class="product-name">
-                    32 Photo Special Offer
-                </div>
+</div>
+</div>
 
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐
-                </div>
 
-                <div class="product-price">
-                    ৳289
-                </div>
+<!-- 32 PHOTO -->
 
-                <button
-                    class="order-btn"
-                    onclick="addToCart('32 Photo Offer',289)"
-                >
-                    Add to Cart
-                </button>
+<div
+class="product"
+data-category="offer photo"
+data-name="32 Photo Offer"
+>
 
-            </div>
+<div class="discount">
+BEST DEAL
+</div>
 
-        </div>
+<div class="product-image">
+🎞️
+</div>
 
-        <!-- PERSONALIZED GIFT -->
-        <div
-            class="product"
-            data-category="custom"
-            data-name="Personalized Gift"
-        >
+<div class="product-info">
 
-            <div class="product-image">
-                🎁
-            </div>
+<div class="product-name">
+32 Photo Special Offer
+</div>
 
-            <div class="product-info">
+<div class="rating">
+⭐⭐⭐⭐⭐
+</div>
 
-                <div class="product-name">
-                    Personalized Gift
-                </div>
+<div class="product-price">
+৳289
+</div>
 
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐
-                </div>
+<button
+class="order-btn"
+onclick="addToCart('32 Photo Offer',289)"
+>
+Add to Cart
+</button>
 
-                <div class="product-price">
-                    Custom
-                </div>
+<button
+class="order-now-btn"
+onclick="orderWhatsApp('32 Photo Offer',289)"
+>
+Order Now
+</button>
 
-                <button
-                    class="order-btn"
-                    onclick="orderWhatsApp('Personalized Gift')"
-                >
-                    Order Now
-                </button>
+</div>
+</div>
 
-            </div>
 
-        </div>
+<!-- PERSONALIZED -->
 
-    </div>
+<div
+class="product"
+data-category="custom"
+data-name="Personalized Gift"
+>
+
+<div class="product-image">
+🎁
+</div>
+
+<div class="product-info">
+
+<div class="product-name">
+Personalized Gift
+</div>
+
+<div class="rating">
+⭐⭐⭐⭐⭐
+</div>
+
+<div class="product-price">
+Custom
+</div>
+
+<button
+class="order-now-btn"
+onclick="orderWhatsApp('Personalized Gift','Custom')"
+>
+Order Now
+</button>
+
+</div>
+</div>
+
+
+</div>
 
 </section>
 
-<!-- OFFER -->
+
 <section class="section">
 
-    <div class="offer-box">
+<div class="offer-box">
 
-        <div>
+<div>
 
-            <h2>
-                🔥 Special Photo Offer
-            </h2>
+<h2>
+🔥 Special Photo Offer
+</h2>
 
-            <p>
-                16 pcs মাত্র ৳199
-                &nbsp; | &nbsp;
-                32 pcs মাত্র ৳289
-            </p>
+<p>
+16 pcs মাত্র ৳199 &nbsp; | &nbsp;
+32 pcs মাত্র ৳289
+</p>
 
-        </div>
+</div>
 
-        <a
-            href="#shop"
-            class="offer-button"
-        >
-            Shop Offer →
-        </a>
+<a href="#shop" class="offer-button">
+Shop Offer →
+</a>
 
-    </div>
+</div>
 
 </section>
 
-<!-- BENEFITS -->
+
 <section class="section">
 
-    <div class="section-heading">
+<div class="section-heading">
 
-        <h2>
-            Why Shop With Us?
-        </h2>
+<h2>
+Why Shop With Us?
+</h2>
 
-    </div>
+</div>
 
-    <div class="benefits">
+<div class="benefits">
 
-        <div class="benefit">
+<div class="benefit">
+<div class="benefit-icon">💝</div>
+<h3>Made With Love</h3>
+<p>যত্ন নিয়ে তৈরি করা হয়।</p>
+</div>
 
-            <div class="benefit-icon">
-                💝
-            </div>
+<div class="benefit">
+<div class="benefit-icon">✨</div>
+<h3>Quality Products</h3>
+<p>ভালো quality নিশ্চিত করার চেষ্টা করি।</p>
+</div>
 
-            <h3>
-                Made With Love
-            </h3>
+<div class="benefit">
+<div class="benefit-icon">📦</div>
+<h3>Careful Packaging</h3>
+<p>সুন্দরভাবে packaging করা হয়।</p>
+</div>
 
-            <p>
-                যত্ন নিয়ে তৈরি করা হয়।
-            </p>
+<div class="benefit">
+<div class="benefit-icon">🚚</div>
+<h3>Delivery</h3>
+<p>সহজ delivery সুবিধা।</p>
+</div>
 
-        </div>
-
-        <div class="benefit">
-
-            <div class="benefit-icon">
-                ✨
-            </div>
-
-            <h3>
-                Quality Products
-            </h3>
-
-            <p>
-                ভালো quality নিশ্চিত করার চেষ্টা করি।
-            </p>
-
-        </div>
-
-        <div class="benefit">
-
-            <div class="benefit-icon">
-                📦
-            </div>
-
-            <h3>
-                Careful Packaging
-            </h3>
-
-            <p>
-                সুন্দরভাবে packaging করা হয়।
-            </p>
-
-        </div>
-
-        <div class="benefit">
-
-            <div class="benefit-icon">
-                🚚
-            </div>
-
-            <h3>
-                Delivery
-            </h3>
-
-            <p>
-                সহজ delivery সুবিধা।
-            </p>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
-<!-- FOOTER -->
+
 <footer>
 
-    <div class="footer-grid">
+<div class="footer-grid">
 
-        <div class="footer-column">
+<div class="footer-column">
+<h3>Love Basket 💝</h3>
+<p>
+Gifts, Memories & Love —
+আপনার special moments-এর জন্য special gifts।
+</p>
+</div>
 
-            <h3>
-                Love Basket 💝
-            </h3>
+<div class="footer-column">
 
-            <p>
-                Gifts, Memories & Love —
-                আপনার special moments-এর জন্য
-                special gifts।
-            </p>
+<h3>Shop</h3>
 
-        </div>
+<p>
+<a href="#shop">
+All Products
+</a>
+</p>
 
-        <div class="footer-column">
+<p>
+<a href="#shop">
+Photo Gifts
+</a>
+</p>
 
-            <h3>
-                Shop
-            </h3>
+<p>
+<a href="#shop">
+Handmade Gifts
+</a>
+</p>
 
-            <p>
-                <a href="#shop">
-                    All Products
-                </a>
-            </p>
+</div>
 
-            <p>
-                <a href="#shop">
-                    Photo Gifts
-                </a>
-            </p>
+<div class="footer-column">
 
-            <p>
-                <a href="#shop">
-                    Handmade Gifts
-                </a>
-            </p>
+<h3>
+Customer Care
+</h3>
 
-        </div>
+<p>
+Delivery Information
+</p>
 
-        <div class="footer-column">
+<p>
+Order Support
+</p>
 
-            <h3>
-                Customer Care
-            </h3>
+<p>
+Custom Order
+</p>
 
-            <p>
-                Delivery Information
-            </p>
+</div>
 
-            <p>
-                Order Support
-            </p>
+<div class="footer-column">
 
-            <p>
-                Custom Order
-            </p>
+<h3>
+Contact
+</h3>
 
-        </div>
+<p>
+WhatsApp: 01626470643
+</p>
 
-        <div class="footer-column">
+<p>
+Facebook
+</p>
 
-            <h3>
-                Contact
-            </h3>
+<p>
+Messenger
+</p>
 
-            <p>
-                WhatsApp: 01626470643
-            </p>
+</div>
 
-            <p>
-                Facebook
-            </p>
+</div>
 
-            <p>
-                Messenger
-            </p>
-
-        </div>
-
-    </div>
-
-    <div class="copyright">
-        © 2026 Love Basket. All Rights Reserved.
-    </div>
+<div class="copyright">
+© 2026 Love Basket. All Rights Reserved.
+</div>
 
 </footer>
 
-<!-- CART PANEL -->
-<div class="cart-panel" id="cartPanel">
 
-    <div class="cart-header">
+<!-- CART -->
 
-        <h2>
-            🛒 My Cart
-        </h2>
+<div
+class="cart-panel"
+id="cartPanel"
+>
 
-        <div
-            class="close-cart"
-            onclick="closeCart()"
-        >
-            ×
-        </div>
+<div class="cart-header">
 
-    </div>
+<h2>
+🛒 My Cart
+</h2>
 
-    <div
-        class="cart-items"
-        id="cartItems"
-    >
-        <p>
-            Your cart is empty.
-        </p>
-    </div>
-
-    <div
-        class="cart-total"
-        id="cartTotal"
-    >
-        Total: ৳0
-    </div>
-
-    <button
-        class="checkout"
-        onclick="checkout()"
-    >
-        Order via WhatsApp
-    </button>
+<div
+class="close-cart"
+onclick="closeCart()"
+>
+×
+</div>
 
 </div>
 
-<!-- JAVASCRIPT -->
+<div
+class="cart-items"
+id="cartItems"
+>
+<p>
+Your cart is empty.
+</p>
+</div>
+
+<div
+class="cart-total"
+id="cartTotal"
+>
+Total: ৳0
+</div>
+
+<button
+class="checkout"
+onclick="checkout()"
+>
+Order via WhatsApp
+</button>
+
+</div>
+
+
+<!-- FULL SCREEN IMAGE -->
+
+<div
+class="image-modal"
+id="imageModal"
+onclick="closeImage()"
+>
+
+<span
+class="image-close"
+onclick="closeImage()"
+>
+&times;
+</span>
+
+<img
+id="fullImage"
+src=""
+alt="Full Product Image"
+onclick="event.stopPropagation()"
+>
+
+<div class="image-hint">
+ছবি বন্ধ করতে × অথবা বাইরে ক্লিক করুন
+</div>
+
+</div>
+
+
 <script>
 
-let cart = [];
+let cart=[];
 
-const whatsappNumber = "8801626470643";
+const whatsappNumber="8801626470643";
 
 
-function addToCart(name, price){
+/* ADD CART */
 
-    cart.push({
-        name:name,
-        price:price
-    });
+function addToCart(name,price){
 
-    updateCart();
+cart.push({
+name:name,
+price:price
+});
 
-    alert(
-        name + " cart-এ যোগ হয়েছে ❤️"
-    );
+updateCart();
+
+alert(name+" cart-এ যোগ হয়েছে ❤️");
+
 }
 
+
+/* UPDATE CART */
 
 function updateCart(){
 
-    document.getElementById("cartCount").innerText =
-        cart.length;
+document.getElementById("cartCount").innerText=cart.length;
 
-    let items =
-        document.getElementById("cartItems");
+let items=document.getElementById("cartItems");
 
-    let total = 0;
+let total=0;
 
 
-    if(cart.length === 0){
+if(cart.length===0){
 
-        items.innerHTML =
-            "<p>Your cart is empty.</p>";
-
-    }else{
-
-        items.innerHTML = "";
-
-        cart.forEach(function(item,index){
-
-            total += item.price;
-
-            items.innerHTML += `
-
-                <div class="cart-item">
-
-                    <div>
-                        ${item.name}
-                        <br>
-                        <strong>
-                            ৳${item.price}
-                        </strong>
-                    </div>
-
-                    <button
-                        onclick="removeItem(${index})"
-                    >
-                        Remove
-                    </button>
-
-                </div>
-
-            `;
-
-        });
-
-    }
-
-
-    document.getElementById("cartTotal").innerText =
-        "Total: ৳" + total;
+items.innerHTML="<p>Your cart is empty.</p>";
 
 }
 
+else{
+
+items.innerHTML="";
+
+
+cart.forEach((item,index)=>{
+
+total+=Number(item.price)||0;
+
+
+items.innerHTML+=`
+
+<div class="cart-item">
+
+<div>
+
+${item.name}
+
+<br>
+
+<strong>
+৳${item.price}
+</strong>
+
+</div>
+
+<button onclick="removeItem(${index})">
+Remove
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+document.getElementById("cartTotal").innerText=
+"Total: ৳"+total;
+
+}
+
+
+/* REMOVE */
 
 function removeItem(index){
 
-    cart.splice(index,1);
+cart.splice(index,1);
 
-    updateCart();
+updateCart();
 
 }
 
+
+/* OPEN CART */
 
 function openCart(){
 
-    document
-        .getElementById("cartPanel")
-        .classList.add("active");
+document
+.getElementById("cartPanel")
+.classList.add("active");
 
 }
 
+
+/* CLOSE CART */
 
 function closeCart(){
 
-    document
-        .getElementById("cartPanel")
-        .classList.remove("active");
+document
+.getElementById("cartPanel")
+.classList.remove("active");
 
 }
 
+
+/* CHECKOUT */
 
 function checkout(){
 
-    if(cart.length === 0){
+if(cart.length===0){
 
-        alert("Cart empty!");
+alert("Cart empty!");
 
-        return;
-    }
-
-
-    let message =
-        "Assalamu Alaikum, আমি Love Basket থেকে order করতে চাই:\n\n";
-
-    let total = 0;
-
-
-    cart.forEach(function(item,index){
-
-        message +=
-            (index + 1) +
-            ". " +
-            item.name +
-            " - ৳" +
-            item.price +
-            "\n";
-
-        total += item.price;
-
-    });
-
-
-    message +=
-        "\nTotal: ৳" +
-        total;
-
-
-    window.open(
-        "https://wa.me/" +
-        whatsappNumber +
-        "?text=" +
-        encodeURIComponent(message),
-        "_blank"
-    );
+return;
 
 }
 
 
-function orderWhatsApp(product){
+let message=
+"Assalamu Alaikum ❤️\n\n"+
+"আমি Love Basket থেকে order করতে চাই।\n\n";
 
-    let message =
-        "Assalamu Alaikum, আমি Love Basket থেকে " +
-        product +
-        " order করতে চাই।";
+let total=0;
 
 
-    window.open(
-        "https://wa.me/" +
-        whatsappNumber +
-        "?text=" +
-        encodeURIComponent(message),
-        "_blank"
-    );
+cart.forEach((item,index)=>{
+
+message+=
+(index+1)+". "+
+item.name+
+" - ৳"+
+item.price+
+"\n";
+
+total+=Number(item.price)||0;
+
+});
+
+
+message+=
+"\nTotal: ৳"+
+total+
+"\n\n"+
+"আমার নাম:\n"+
+"ঠিকানা:\n"+
+"মোবাইল নম্বর:";
+
+
+window.open(
+
+"https://wa.me/"+
+whatsappNumber+
+"?text="+
+encodeURIComponent(message),
+
+"_blank"
+
+);
 
 }
 
+
+/* DIRECT ORDER */
+
+function orderWhatsApp(product,price){
+
+let message=
+
+"Assalamu Alaikum ❤️\n\n"+
+"আমি Love Basket থেকে order করতে চাই।\n\n"+
+"Product: "+
+product+
+"\n"+
+"Price: ৳"+
+price+
+"\n\n"+
+"আমার নাম:\n"+
+"ঠিকানা:\n"+
+"মোবাইল নম্বর:";
+
+
+window.open(
+
+"https://wa.me/"+
+whatsappNumber+
+"?text="+
+encodeURIComponent(message),
+
+"_blank"
+
+);
+
+}
+
+
+/* SEARCH */
 
 function searchProducts(){
 
-    let search =
-        document
-        .getElementById("searchInput")
-        .value
-        .toLowerCase();
+let search=
+document
+.getElementById("searchInput")
+.value
+.toLowerCase();
 
 
-    let products =
-        document.querySelectorAll(".product");
+let products=
+document.querySelectorAll(".product");
 
 
-    products.forEach(function(product){
+products.forEach(product=>{
 
-        let name =
-            product
-            .getAttribute("data-name")
-            .toLowerCase();
+let name=
+product
+.getAttribute("data-name")
+.toLowerCase();
 
 
-        product.style.display =
-            name.includes(search)
-            ? ""
-            : "none";
+product.style.display=
+name.includes(search)
+?
+""
+:
+"none";
 
-    });
+});
 
 }
 
+
+/* CATEGORY FILTER */
 
 function filterProducts(category){
 
-    let products =
-        document.querySelectorAll(".product");
+let products=
+document.querySelectorAll(".product");
 
 
-    products.forEach(function(product){
+products.forEach(product=>{
 
-        let categories =
-            product.getAttribute("data-category");
-
-
-        product.style.display =
-            (
-                category === "all" ||
-                categories.includes(category)
-            )
-            ? ""
-            : "none";
-
-    });
+let categories=
+product.getAttribute("data-category");
 
 
-    document
-        .getElementById("shop")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
+product.style.display=
+
+(
+category==="all" ||
+categories.includes(category)
+)
+?
+""
+:
+"none";
+
+});
+
+
+document
+.getElementById("shop")
+.scrollIntoView({
+behavior:"smooth"
+});
 
 }
+
+
+/* FULL SCREEN IMAGE */
+
+function openImage(img){
+
+document
+.getElementById("fullImage")
+.src=img.src;
+
+
+document
+.getElementById("imageModal")
+.classList.add("active");
+
+}
+
+
+/* CLOSE IMAGE */
+
+function closeImage(){
+
+document
+.getElementById("imageModal")
+.classList.remove("active");
+
+
+document
+.getElementById("fullImage")
+.src="";
+
+}
+
+
+/* ESC BUTTON */
+
+document.addEventListener(
+"keydown",
+function(e){
+
+if(e.key==="Escape"){
+
+closeImage();
+
+closeCart();
+
+}
+
+});
 
 </script>
 
