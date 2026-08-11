@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Love Basket | Online Gift Shop</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -24,16 +26,18 @@ a{
 }
 
 /* TOP BAR */
+
 .topbar{
     background:#222;
-    color:#fff;
+    color:white;
     padding:8px 5%;
     font-size:13px;
 }
 
 /* HEADER */
+
 .header{
-    background:#fff;
+    background:white;
     padding:18px 5%;
     display:flex;
     align-items:center;
@@ -68,7 +72,7 @@ a{
     width:60px;
     border:0;
     background:#e91e63;
-    color:#fff;
+    color:white;
     font-size:20px;
     cursor:pointer;
     border-radius:0 5px 5px 0;
@@ -88,7 +92,6 @@ a{
 
 .header-action div{
     font-size:23px;
-    margin-bottom:3px;
 }
 
 .cart{
@@ -100,7 +103,7 @@ a{
     top:-7px;
     right:-8px;
     background:#e91e63;
-    color:#fff;
+    color:white;
     width:19px;
     height:19px;
     border-radius:50%;
@@ -110,8 +113,9 @@ a{
 }
 
 /* CATEGORY */
+
 .category-bar{
-    background:#fff;
+    background:white;
     border-bottom:1px solid #ddd;
 }
 
@@ -138,6 +142,7 @@ a{
 }
 
 /* HERO */
+
 .hero{
     max-width:1300px;
     margin:20px auto;
@@ -160,13 +165,11 @@ a{
 .hero-text small{
     color:#e91e63;
     font-weight:bold;
-    font-size:15px;
 }
 
 .hero-text h1{
     font-size:52px;
     margin:12px 0;
-    line-height:1.1;
 }
 
 .hero-text p{
@@ -178,13 +181,14 @@ a{
 .hero-button{
     display:inline-block;
     background:#e91e63;
-    color:#fff;
+    color:white;
     padding:13px 27px;
     border-radius:5px;
     font-weight:bold;
 }
 
 /* SECTION */
+
 .section{
     max-width:1300px;
     margin:35px auto;
@@ -198,16 +202,8 @@ a{
     margin-bottom:18px;
 }
 
-.section-heading h2{
-    font-size:25px;
-}
-
-.section-heading span{
-    color:#e91e63;
-    font-size:14px;
-}
-
 /* PRODUCTS */
+
 .products{
     display:grid;
     grid-template-columns:repeat(5,1fr);
@@ -215,12 +211,12 @@ a{
 }
 
 .product{
-    background:#fff;
+    background:white;
     border:1px solid #eee;
     border-radius:7px;
     overflow:hidden;
-    transition:.2s;
     position:relative;
+    transition:.2s;
 }
 
 .product:hover{
@@ -238,17 +234,11 @@ a{
     overflow:hidden;
 }
 
-/* PRODUCT IMAGE */
 .product-image img{
     width:100%;
     height:100%;
     object-fit:contain;
     cursor:pointer;
-    transition:.2s;
-}
-
-.product-image img:hover{
-    transform:scale(1.03);
 }
 
 .product-info{
@@ -258,7 +248,12 @@ a{
 .product-name{
     font-size:15px;
     min-height:40px;
-    line-height:1.4;
+}
+
+.rating{
+    margin-top:6px;
+    font-size:12px;
+    color:#f5a623;
 }
 
 .product-price{
@@ -268,36 +263,37 @@ a{
     color:#e91e63;
 }
 
-.rating{
-    margin-top:6px;
-    font-size:12px;
-    color:#f5a623;
-}
-
 /* BUTTONS */
-.order-btn,
-.order-now-btn{
-    margin-top:12px;
-    width:100%;
-    border:0;
-    color:#fff;
-    padding:10px;
-    border-radius:4px;
-    cursor:pointer;
-    font-weight:bold;
-}
 
 .order-btn{
+    width:100%;
+    margin-top:12px;
+    padding:11px;
+    border:0;
+    border-radius:5px;
     background:#e91e63;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 .order-btn:hover{
     background:#c2185b;
 }
 
+/* ORDER NOW */
+
 .order-now-btn{
+    width:100%;
     margin-top:8px;
+    padding:11px;
+    border:0;
+    border-radius:5px;
     background:#25D366;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    display:block;
 }
 
 .order-now-btn:hover{
@@ -309,7 +305,7 @@ a{
     top:10px;
     left:10px;
     background:#e91e63;
-    color:#fff;
+    color:white;
     padding:5px 8px;
     border-radius:3px;
     font-size:11px;
@@ -318,34 +314,25 @@ a{
 }
 
 /* OFFER */
+
 .offer-box{
     background:#222;
-    color:#fff;
+    color:white;
     padding:35px;
     border-radius:8px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:20px;
-}
-
-.offer-box h2{
-    font-size:30px;
-}
-
-.offer-box p{
-    color:#ccc;
-    margin-top:8px;
 }
 
 .offer-button{
     background:#e91e63;
     padding:13px 25px;
     border-radius:5px;
-    white-space:nowrap;
 }
 
 /* BENEFITS */
+
 .benefits{
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -353,7 +340,7 @@ a{
 }
 
 .benefit{
-    background:#fff;
+    background:white;
     padding:25px 15px;
     text-align:center;
     border:1px solid #eee;
@@ -362,12 +349,10 @@ a{
 
 .benefit-icon{
     font-size:35px;
-    margin-bottom:10px;
 }
 
 .benefit h3{
-    font-size:16px;
-    margin-bottom:7px;
+    margin:8px 0;
 }
 
 .benefit p{
@@ -376,9 +361,10 @@ a{
 }
 
 /* FOOTER */
+
 footer{
     background:#222;
-    color:#fff;
+    color:white;
     margin-top:60px;
     padding:50px 5% 20px;
 }
@@ -392,8 +378,8 @@ footer{
 }
 
 .footer-column h3{
-    margin-bottom:18px;
     color:#ff4f91;
+    margin-bottom:18px;
 }
 
 .footer-column p,
@@ -410,17 +396,17 @@ footer{
     border-top:1px solid #444;
     text-align:center;
     color:#888;
-    font-size:13px;
 }
 
 /* CART */
+
 .cart-panel{
     position:fixed;
     top:0;
     right:-400px;
     width:370px;
     height:100%;
-    background:#fff;
+    background:white;
     z-index:5000;
     box-shadow:-5px 0 20px rgba(0,0,0,.2);
     transition:.3s;
@@ -435,7 +421,6 @@ footer{
 .cart-header{
     display:flex;
     justify-content:space-between;
-    align-items:center;
     border-bottom:1px solid #ddd;
     padding-bottom:15px;
 }
@@ -452,7 +437,6 @@ footer{
 .cart-item{
     display:flex;
     justify-content:space-between;
-    gap:10px;
     border-bottom:1px solid #eee;
     padding:13px 0;
 }
@@ -460,9 +444,8 @@ footer{
 .cart-item button{
     border:0;
     background:#e91e63;
-    color:#fff;
+    color:white;
     padding:5px 8px;
-    cursor:pointer;
 }
 
 .cart-total{
@@ -475,7 +458,7 @@ footer{
     width:100%;
     border:0;
     background:#25D366;
-    color:#fff;
+    color:white;
     padding:14px;
     margin-top:15px;
     border-radius:5px;
@@ -483,7 +466,8 @@ footer{
     font-weight:bold;
 }
 
-/* FULL SCREEN IMAGE */
+/* FULLSCREEN IMAGE */
+
 .image-modal{
     display:none;
     position:fixed;
@@ -502,119 +486,108 @@ footer{
 .image-modal img{
     max-width:95vw;
     max-height:92vh;
-    width:auto;
-    height:auto;
     object-fit:contain;
-    border-radius:6px;
 }
 
 .image-close{
     position:absolute;
     top:10px;
-    right:24px;
-    color:#fff;
-    font-size:46px;
+    right:25px;
+    color:white;
+    font-size:45px;
     cursor:pointer;
 }
 
-.image-hint{
-    position:absolute;
-    bottom:15px;
-    color:#ddd;
-    font-size:13px;
+/* MOBILE */
+
+@media(max-width:1050px){
+
+.products{
+    grid-template-columns:repeat(3,1fr);
 }
 
-/* MOBILE */
-@media(max-width:1050px){
-    .products{
-        grid-template-columns:repeat(3,1fr);
-    }
+.benefits{
+    grid-template-columns:repeat(2,1fr);
+}
 
-    .benefits{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .footer-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
 }
 
 @media(max-width:700px){
-    .header{
-        flex-wrap:wrap;
-    }
 
-    .logo{
-        width:100%;
-    }
+.header{
+    flex-wrap:wrap;
+}
 
-    .search{
-        order:3;
-        width:100%;
-    }
+.logo{
+    width:100%;
+}
 
-    .header-actions{
-        margin-left:auto;
-    }
+.search{
+    order:3;
+    width:100%;
+}
 
-    .hero-box{
-        padding:35px 25px;
-        min-height:420px;
-    }
+.products{
+    grid-template-columns:repeat(2,1fr);
+}
 
-    .hero-text h1{
-        font-size:38px;
-    }
+.hero-box{
+    padding:35px 25px;
+}
 
-    .products{
-        grid-template-columns:repeat(2,1fr);
-    }
+.hero-text h1{
+    font-size:38px;
+}
 
-    .offer-box{
-        flex-direction:column;
-        align-items:flex-start;
-    }
+.offer-box{
+    flex-direction:column;
+    align-items:flex-start;
+}
 
-    .footer-grid{
-        grid-template-columns:1fr;
-    }
+.footer-grid{
+    grid-template-columns:1fr;
+}
+
 }
 
 @media(max-width:450px){
-    .products{
-        grid-template-columns:1fr 1fr;
-        gap:8px;
-    }
 
-    .product-image{
-        height:160px;
-    }
-
-    .product-info{
-        padding:10px;
-    }
-
-    .product-name{
-        font-size:13px;
-    }
-
-    .product-price{
-        font-size:17px;
-    }
-
-    .cart-panel{
-        width:100%;
-        right:-100%;
-    }
+.product-image{
+    height:160px;
 }
+
+.product-info{
+    padding:10px;
+}
+
+.product-name{
+    font-size:13px;
+}
+
+.product-price{
+    font-size:17px;
+}
+
+.cart-panel{
+    width:100%;
+    right:-100%;
+}
+
+}
+
 </style>
 </head>
 
+
 <body>
 
+
 <div class="topbar">
+
 🎁 Welcome to Love Basket — Gifts, Memories & Love
+
 </div>
+
 
 <header class="header">
 
@@ -622,27 +595,50 @@ footer{
 Love Basket 💝
 </div>
 
+
 <div class="search">
+
 <input
-type="text"
 id="searchInput"
+type="text"
 placeholder="Search products..."
 onkeyup="searchProducts()"
 >
-<button>🔍</button>
+
+<button>
+🔍
+</button>
+
 </div>
+
 
 <div class="header-actions">
 
 <div class="header-action">
+
 <div>👤</div>
+
 Account
+
 </div>
 
-<div class="header-action cart" onclick="openCart()">
+
+<div
+class="header-action cart"
+onclick="openCart()"
+>
+
 <div>🛒</div>
+
 Cart
-<span class="cart-count" id="cartCount">0</span>
+
+<span
+class="cart-count"
+id="cartCount"
+>
+0
+</span>
+
 </div>
 
 </div>
@@ -707,7 +703,10 @@ Handmade Gifts, Bouquet, Jewellery এবং Personalized Gift—
 সবকিছু এক জায়গায়।
 </p>
 
-<a href="#shop" class="hero-button">
+<a
+href="#shop"
+class="hero-button"
+>
 Shop Now →
 </a>
 
@@ -718,7 +717,10 @@ Shop Now →
 </section>
 
 
-<section class="section" id="shop">
+<section
+class="section"
+id="shop"
+>
 
 <div class="section-heading">
 
@@ -733,7 +735,10 @@ Explore More →
 </div>
 
 
-<div class="products" id="productGrid">
+<div
+class="products"
+id="productGrid"
+>
 
 
 <!-- A4 PHOTO FRAME -->
@@ -762,21 +767,25 @@ A4 Photo Frame
 ৳399
 </div>
 
+
 <button
 class="order-btn"
 onclick="addToCart('A4 Photo Frame',399)"
 >
-Add to Cart
+🛒 Add to Cart
 </button>
+
 
 <button
 class="order-now-btn"
 onclick="orderWhatsApp('A4 Photo Frame',399)"
 >
-Order Now
+🟢 Order Now
 </button>
 
+
 </div>
+
 </div>
 
 
@@ -798,6 +807,7 @@ onclick="openImage(this)"
 
 </div>
 
+
 <div class="product-info">
 
 <div class="product-name">
@@ -812,21 +822,25 @@ Mini Photo Print
 ৳20 / pcs
 </div>
 
+
 <button
 class="order-btn"
 onclick="addToCart('Mini Photo Print',20)"
 >
-Add to Cart
+🛒 Add to Cart
 </button>
+
 
 <button
 class="order-now-btn"
 onclick="orderWhatsApp('Mini Photo Print',20)"
 >
-Order Now
+🟢 Order Now
 </button>
 
+
 </div>
+
 </div>
 
 
@@ -856,21 +870,25 @@ Ribbon Rose Bouquet
 ৳99
 </div>
 
+
 <button
 class="order-btn"
 onclick="addToCart('Ribbon Rose Bouquet',99)"
 >
-Add to Cart
+🛒 Add to Cart
 </button>
+
 
 <button
 class="order-now-btn"
 onclick="orderWhatsApp('Ribbon Rose Bouquet',99)"
 >
-Order Now
+🟢 Order Now
 </button>
 
+
 </div>
+
 </div>
 
 
@@ -900,21 +918,25 @@ Handmade Churi
 ৳150
 </div>
 
+
 <button
 class="order-btn"
 onclick="addToCart('Handmade Churi',150)"
 >
-Add to Cart
+🛒 Add to Cart
 </button>
+
 
 <button
 class="order-now-btn"
 onclick="orderWhatsApp('Handmade Churi',150)"
 >
-Order Now
+🟢 Order Now
 </button>
 
+
 </div>
+
 </div>
 
 
@@ -944,21 +966,25 @@ Mini Photo Frame
 ৳200
 </div>
 
+
 <button
 class="order-btn"
 onclick="addToCart('Mini Photo Frame',200)"
 >
-Add to Cart
+🛒 Add to Cart
 </button>
+
 
 <button
 class="order-now-btn"
 onclick="orderWhatsApp('Mini Photo Frame',200)"
 >
-Order Now
+🟢 Order Now
 </button>
 
+
 </div>
+
 </div>
 
 
@@ -992,21 +1018,25 @@ OFFER
 ৳199
 </div>
 
+
 <button
 class="order-btn"
 onclick="addToCart('16 Photo Offer',199)"
 >
-Add to Cart
+🛒 Add to Cart
 </button>
+
 
 <button
 class="order-now-btn"
 onclick="orderWhatsApp('16 Photo Offer',199)"
 >
-Order Now
+🟢 Order Now
 </button>
 
+
 </div>
+
 </div>
 
 
@@ -1040,21 +1070,25 @@ BEST DEAL
 ৳289
 </div>
 
+
 <button
 class="order-btn"
 onclick="addToCart('32 Photo Offer',289)"
 >
-Add to Cart
+🛒 Add to Cart
 </button>
+
 
 <button
 class="order-now-btn"
 onclick="orderWhatsApp('32 Photo Offer',289)"
 >
-Order Now
+🟢 Order Now
 </button>
 
+
 </div>
+
 </div>
 
 
@@ -1084,14 +1118,17 @@ Personalized Gift
 Custom
 </div>
 
+
 <button
 class="order-now-btn"
 onclick="orderWhatsApp('Personalized Gift','Custom')"
 >
-Order Now
+🟢 Order Now
 </button>
 
+
 </div>
+
 </div>
 
 
@@ -1111,13 +1148,16 @@ Order Now
 </h2>
 
 <p>
-16 pcs মাত্র ৳199 &nbsp; | &nbsp;
+16 pcs মাত্র ৳199 |
 32 pcs মাত্র ৳289
 </p>
 
 </div>
 
-<a href="#shop" class="offer-button">
+<a
+href="#shop"
+class="offer-button"
+>
 Shop Offer →
 </a>
 
@@ -1136,31 +1176,77 @@ Why Shop With Us?
 
 </div>
 
+
 <div class="benefits">
 
-<div class="benefit">
-<div class="benefit-icon">💝</div>
-<h3>Made With Love</h3>
-<p>যত্ন নিয়ে তৈরি করা হয়।</p>
-</div>
 
 <div class="benefit">
-<div class="benefit-icon">✨</div>
-<h3>Quality Products</h3>
-<p>ভালো quality নিশ্চিত করার চেষ্টা করি।</p>
+
+<div class="benefit-icon">
+💝
 </div>
 
-<div class="benefit">
-<div class="benefit-icon">📦</div>
-<h3>Careful Packaging</h3>
-<p>সুন্দরভাবে packaging করা হয়।</p>
+<h3>
+Made With Love
+</h3>
+
+<p>
+যত্ন নিয়ে তৈরি করা হয়।
+</p>
+
 </div>
 
+
 <div class="benefit">
-<div class="benefit-icon">🚚</div>
-<h3>Delivery</h3>
-<p>সহজ delivery সুবিধা।</p>
+
+<div class="benefit-icon">
+✨
 </div>
+
+<h3>
+Quality Products
+</h3>
+
+<p>
+ভালো quality নিশ্চিত করার চেষ্টা করি।
+</p>
+
+</div>
+
+
+<div class="benefit">
+
+<div class="benefit-icon">
+📦
+</div>
+
+<h3>
+Careful Packaging
+</h3>
+
+<p>
+সুন্দরভাবে packaging করা হয়।
+</p>
+
+</div>
+
+
+<div class="benefit">
+
+<div class="benefit-icon">
+🚚
+</div>
+
+<h3>
+Delivery
+</h3>
+
+<p>
+সহজ delivery সুবিধা।
+</p>
+
+</div>
+
 
 </div>
 
@@ -1171,17 +1257,26 @@ Why Shop With Us?
 
 <div class="footer-grid">
 
+
 <div class="footer-column">
-<h3>Love Basket 💝</h3>
+
+<h3>
+Love Basket 💝
+</h3>
+
 <p>
 Gifts, Memories & Love —
 আপনার special moments-এর জন্য special gifts।
 </p>
+
 </div>
+
 
 <div class="footer-column">
 
-<h3>Shop</h3>
+<h3>
+Shop
+</h3>
 
 <p>
 <a href="#shop">
@@ -1203,6 +1298,7 @@ Handmade Gifts
 
 </div>
 
+
 <div class="footer-column">
 
 <h3>
@@ -1222,6 +1318,7 @@ Custom Order
 </p>
 
 </div>
+
 
 <div class="footer-column">
 
@@ -1243,10 +1340,14 @@ Messenger
 
 </div>
 
+
 </div>
 
+
 <div class="copyright">
+
 © 2026 Love Basket. All Rights Reserved.
+
 </div>
 
 </footer>
@@ -1274,14 +1375,18 @@ onclick="closeCart()"
 
 </div>
 
+
 <div
 class="cart-items"
 id="cartItems"
 >
+
 <p>
 Your cart is empty.
 </p>
+
 </div>
+
 
 <div
 class="cart-total"
@@ -1289,6 +1394,7 @@ id="cartTotal"
 >
 Total: ৳0
 </div>
+
 
 <button
 class="checkout"
@@ -1300,7 +1406,7 @@ Order via WhatsApp
 </div>
 
 
-<!-- FULL SCREEN IMAGE -->
+<!-- FULLSCREEN IMAGE -->
 
 <div
 class="image-modal"
@@ -1310,10 +1416,10 @@ onclick="closeImage()"
 
 <span
 class="image-close"
-onclick="closeImage()"
 >
-&times;
+×
 </span>
+
 
 <img
 id="fullImage"
@@ -1322,9 +1428,6 @@ alt="Full Product Image"
 onclick="event.stopPropagation()"
 >
 
-<div class="image-hint">
-ছবি বন্ধ করতে × অথবা বাইরে ক্লিক করুন
-</div>
 
 </div>
 
@@ -1336,18 +1439,24 @@ let cart=[];
 const whatsappNumber="8801626470643";
 
 
-/* ADD CART */
+/* ADD TO CART */
 
 function addToCart(name,price){
 
 cart.push({
+
 name:name,
+
 price:price
+
 });
 
 updateCart();
 
-alert(name+" cart-এ যোগ হয়েছে ❤️");
+alert(
+name+
+" cart-এ যোগ হয়েছে ❤️"
+);
 
 }
 
@@ -1356,16 +1465,22 @@ alert(name+" cart-এ যোগ হয়েছে ❤️");
 
 function updateCart(){
 
-document.getElementById("cartCount").innerText=cart.length;
+document.getElementById(
+"cartCount"
+).innerText=cart.length;
 
-let items=document.getElementById("cartItems");
+
+let items=document.getElementById(
+"cartItems"
+);
 
 let total=0;
 
 
 if(cart.length===0){
 
-items.innerHTML="<p>Your cart is empty.</p>";
+items.innerHTML=
+"<p>Your cart is empty.</p>";
 
 }
 
@@ -1374,7 +1489,8 @@ else{
 items.innerHTML="";
 
 
-cart.forEach((item,index)=>{
+cart.forEach(
+(item,index)=>{
 
 total+=Number(item.price)||0;
 
@@ -1395,7 +1511,9 @@ ${item.name}
 
 </div>
 
-<button onclick="removeItem(${index})">
+<button
+onclick="removeItem(${index})"
+>
 Remove
 </button>
 
@@ -1403,13 +1521,18 @@ Remove
 
 `;
 
-});
+}
+
+);
 
 }
 
 
-document.getElementById("cartTotal").innerText=
-"Total: ৳"+total;
+document.getElementById(
+"cartTotal"
+).innerText=
+"Total: ৳"+
+total;
 
 }
 
@@ -1447,7 +1570,7 @@ document
 }
 
 
-/* CHECKOUT */
+/* ORDER CART */
 
 function checkout(){
 
@@ -1467,10 +1590,12 @@ let message=
 let total=0;
 
 
-cart.forEach((item,index)=>{
+cart.forEach(
+(item,index)=>{
 
 message+=
-(index+1)+". "+
+(index+1)+
+". "+
 item.name+
 " - ৳"+
 item.price+
@@ -1478,7 +1603,9 @@ item.price+
 
 total+=Number(item.price)||0;
 
-});
+}
+
+);
 
 
 message+=
@@ -1504,12 +1631,11 @@ encodeURIComponent(message),
 }
 
 
-/* DIRECT ORDER */
+/* DIRECT ORDER NOW */
 
 function orderWhatsApp(product,price){
 
 let message=
-
 "Assalamu Alaikum ❤️\n\n"+
 "আমি Love Basket থেকে order করতে চাই।\n\n"+
 "Product: "+
@@ -1542,21 +1668,21 @@ encodeURIComponent(message),
 function searchProducts(){
 
 let search=
+document.getElementById(
+"searchInput"
+).value.toLowerCase();
+
+
 document
-.getElementById("searchInput")
-.value
-.toLowerCase();
-
-
-let products=
-document.querySelectorAll(".product");
-
-
-products.forEach(product=>{
+.querySelectorAll(".product")
+.forEach(
+product=>{
 
 let name=
 product
-.getAttribute("data-name")
+.getAttribute(
+"data-name"
+)
 .toLowerCase();
 
 
@@ -1567,27 +1693,29 @@ name.includes(search)
 :
 "none";
 
-});
+}
+
+);
 
 }
 
 
-/* CATEGORY FILTER */
+/* CATEGORY */
 
 function filterProducts(category){
 
-let products=
-document.querySelectorAll(".product");
-
-
-products.forEach(product=>{
+document
+.querySelectorAll(".product")
+.forEach(
+product=>{
 
 let categories=
-product.getAttribute("data-category");
+product.getAttribute(
+"data-category"
+);
 
 
 product.style.display=
-
 (
 category==="all" ||
 categories.includes(category)
@@ -1597,7 +1725,9 @@ categories.includes(category)
 :
 "none";
 
-});
+}
+
+);
 
 
 document
@@ -1613,35 +1743,28 @@ behavior:"smooth"
 
 function openImage(img){
 
-document
-.getElementById("fullImage")
-.src=img.src;
+document.getElementById(
+"fullImage"
+).src=img.src;
 
 
-document
-.getElementById("imageModal")
-.classList.add("active");
+document.getElementById(
+"imageModal"
+).classList.add("active");
 
 }
 
-
-/* CLOSE IMAGE */
 
 function closeImage(){
 
-document
-.getElementById("imageModal")
-.classList.remove("active");
-
-
-document
-.getElementById("fullImage")
-.src="";
+document.getElementById(
+"imageModal"
+).classList.remove("active");
 
 }
 
 
-/* ESC BUTTON */
+/* ESC */
 
 document.addEventListener(
 "keydown",
